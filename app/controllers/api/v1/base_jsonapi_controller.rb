@@ -4,8 +4,10 @@ module Api
       include JSONAPI::ActsAsResourceController
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+      after_action :verify_policy_scoped
+
       def current_user
-        @current_user ||= User.first
+        @current_user ||= User.find(5)
       end
 
       private
@@ -15,6 +17,7 @@ module Api
       end
 
       def user_not_authorized
+        Rails.logger.info "403 / Pundit::NotAuthorizedError for #{current_user.username}"
         head :forbidden
       end
     end

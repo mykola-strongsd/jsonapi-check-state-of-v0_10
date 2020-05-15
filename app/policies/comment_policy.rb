@@ -1,7 +1,11 @@
 class CommentPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope
+      return scope if @user.access_full?
+
+      return scope.where(author_id: @user.id) if @user.access_own?
+
+      scope.none
     end
   end
 
@@ -13,22 +17,22 @@ class CommentPolicy
   end
 
   def index?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def show?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def create?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def update?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def destroy?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 end

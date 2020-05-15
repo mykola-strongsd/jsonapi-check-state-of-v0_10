@@ -1,7 +1,9 @@
 class UserPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope
+      return scope if @user.access_full?
+
+      scope.none
     end
   end
 
@@ -13,22 +15,22 @@ class UserPolicy
   end
 
   def index?
-    true
+    @user.access_full?
   end
 
   def show?
-    true
+    @user.access_full?
   end
 
   def create?
-    true
+    @user.access_full?
   end
 
   def update?
-    true
+    @user.access_full?
   end
 
   def destroy?
-    true
+    @user.access_full?
   end
 end

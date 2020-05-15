@@ -1,7 +1,11 @@
 class ArticlePolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope
+      return scope if @user.access_full?
+
+      return scope.where(author_id: @user.id) if @user.access_own?
+
+      scope.none
     end
   end
 
@@ -13,53 +17,53 @@ class ArticlePolicy
   end
 
   def index?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def show?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def create?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def update?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def destroy?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
 
   def create_with_author?(_author)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
 
   def create_with_comments?(_comments)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def add_to_comments?(_comments)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
   
   def replace_comments?(_comments)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def remove_from_comments?(_comment)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
 
   def replace_author?(_author)
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 
   def remove_author?
-    true
+    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 end

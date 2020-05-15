@@ -2,11 +2,11 @@ class SeedGenerator
   TAGS = %w{Health Business Beauty Fashion Music Food Lifestyle Travel Gardening Finance Yoga}
 
   def generate
-    user_with_articles = User.create!(username: 'user_with_articles')
-    user_without_articles = User.create!(username: 'user_without_articles')
-    user_3 = User.create!(username: 'user 3')
-    user_4 = User.create!(username: 'user 4')
-    user_5 = User.create!(username: 'user 5')
+    user_with_articles = User.create!(username: 'user 1 with_articles / access own', access: :own)
+    user_without_articles = User.create!(username: 'user 2 without_articles / access own', access: :own)
+    user_3 = User.create!(username: 'user 3 / access full', access: :full
+    user_4 = User.create!(username: 'user 4 / access full', access: :full)
+    user_5 = User.create!(username: 'user 5 / access limited', access: :limited)
     
     article_with_comments = Article.create!(title: 'article_with_comments')
     article_without_comments = Article.create!(title: 'article_without_comments')
