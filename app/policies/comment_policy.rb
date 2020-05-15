@@ -1,9 +1,9 @@
 class CommentPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope if @user.access_full?
+      return scope if user.access_full?
 
-      return scope.where(author_id: @user.id) if @user.access_own?
+      return scope.where(author_id: user.id) if user.access_own?
 
       scope.none
     end

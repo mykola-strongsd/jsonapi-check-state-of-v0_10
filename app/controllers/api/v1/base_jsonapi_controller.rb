@@ -4,10 +4,13 @@ module Api
       include JSONAPI::ActsAsResourceController
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-      after_action :verify_policy_scoped
+      # include Pundit
+      # after_action :verify_policy_scoped
 
       def current_user
-        @current_user ||= User.find(5)
+        raise 'No CURRENT_USER_ID specified!' unless ENV['CURRENT_USER_ID']
+
+        @current_user ||= User.find(ENV['CURRENT_USER_ID'])
       end
 
       private

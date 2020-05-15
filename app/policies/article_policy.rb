@@ -1,9 +1,9 @@
 class ArticlePolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope if @user.access_full?
+      return scope if user.access_full?
 
-      return scope.where(author_id: @user.id) if @user.access_own?
+      return scope.where(author_id: user.id) if user.access_own?
 
       scope.none
     end
@@ -21,6 +21,8 @@ class ArticlePolicy
   end
 
   def show?
+    Rails.logger.info "ArticlePolicy#show? called for #{user.username}"
+
     @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
   end
 

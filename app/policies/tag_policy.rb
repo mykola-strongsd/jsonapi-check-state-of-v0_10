@@ -1,7 +1,7 @@
 class TagPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope unless @user.access_none?
+      return scope unless user.access_none?
 
       scope.none
     end

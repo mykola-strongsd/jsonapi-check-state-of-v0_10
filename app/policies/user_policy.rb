@@ -1,7 +1,7 @@
 class UserPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      return scope if @user.access_full?
+      return scope if user.access_full?
 
       scope.none
     end
