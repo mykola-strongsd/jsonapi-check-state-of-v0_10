@@ -3,6 +3,8 @@ class UserPolicy
     def resolve
       return scope if user.access_full?
 
+      return scope.where(id: user.id) if user.access_own?
+
       scope.none
     end
   end
@@ -15,11 +17,11 @@ class UserPolicy
   end
 
   def index?
-    @user.access_full?
+    !user.access_none?    
   end
 
   def show?
-    @user.access_full?
+    user.access_full? || (user.access_own? && record.id == user.id)
   end
 
   def create?
@@ -27,10 +29,10 @@ class UserPolicy
   end
 
   def update?
-    @user.access_full?
+    user.access_full? || (user.access_own? && record.id == user.id)
   end
 
   def destroy?
-    @user.access_full?
+    user.access_full? || (user.access_own? && record.id == user.id)
   end
 end

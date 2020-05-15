@@ -17,22 +17,22 @@ class CommentPolicy
   end
 
   def index?
-    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
+    !user.access_none?
   end
 
   def show?
-    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
+    user.access_full? || (user.access_own? && record.author_id == user.id)
   end
 
   def create?
-    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
+    user.access_full? || (user.access_own? && record.author_id == user.id)
   end
 
   def update?
-    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
+    user.access_full? || (user.access_own? && record.author_id == user.id)
   end
 
   def destroy?
-    @user.access_full? || (@user.access_own? && @record.author_id == @user.id)
+    user.access_full? || (user.access_own? && record.author_id == user.id)
   end
 end

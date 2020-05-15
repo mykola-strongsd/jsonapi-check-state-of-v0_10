@@ -1,7 +1,6 @@
 module Api
   module V1
-    class UserController < Api::V1::BaseJsonapiController
-
+    class MeController < Api::V1::BaseJsonapiController
       private
 
       def params

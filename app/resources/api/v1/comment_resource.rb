@@ -3,6 +3,7 @@ module Api
     class CommentResource < BaseResource
       attributes :content
 
+      belongs_to :author, class_name: 'Author'
       has_many :tags
     end
   end

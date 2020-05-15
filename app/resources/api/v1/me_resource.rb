@@ -1,6 +1,8 @@
 module Api
   module V1
-    class UserResource < BaseResource
+    class MeResource < BaseResource
+      model_name 'User'
+
       attributes :username
 
       singleton singleton_key: lambda { |context|
@@ -10,8 +12,8 @@ module Api
         key
       }
 
-      has_many :articles
-      has_many :comments
+      # has_many :articles, inverse_relationship: :author
+      # has_many :comments, inverse_relationship: :author
     end
   end
 end

@@ -15,22 +15,22 @@ class TagPolicy
   end
 
   def index?
-    !@user.access_none?
+    !user.access_none?
   end
 
   def show?
-    !@user.access_none?
+    !user.access_none?
   end
 
   def create?
-    !@user.access_none?
+    !user.access_none?
   end
 
   def update?
-    !@user.access_none?
+    !user.access_none?
   end
 
   def destroy?
-    !@user.access_none?
+    !user.access_none?
   end
 end
