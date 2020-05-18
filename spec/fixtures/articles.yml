@@ -1,0 +1,19 @@
+---
+- title: article_with_comments
+  author_id: 
+- title: article_without_comments
+  author_id: 
+- title: article_with_author
+  author_id: 1
+- title: article_with_author_comments
+  author_id: 1
+- title: article_without_author
+  author_id: 
+- title: article_with_author_comments_1
+  author_id: 5
+- title: article new 1
+  author_id: 1
+- title: article new 1
+  author_id: 1
+- title: article new   9
+  author_id: 2

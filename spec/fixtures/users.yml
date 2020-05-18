@@ -1,0 +1,11 @@
+---
+- username: user 1 with_articles / access own
+  access: own
+- username: user 2 without_articles / access own
+  access: own
+- username: user 3 / access full
+  access: full
+- username: user 4 / access none
+  access: none
+- username: user 5 with_articles / access none
+  access: none
