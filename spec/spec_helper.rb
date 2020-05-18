@@ -16,17 +16,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.after(:each) do
-    Warden.test_reset!
-  end
-
-  config.after(:each, download: true) do
-    DownloadHelpers.clear_downloads
-  end
-
   config.filter_run_excluding bug: true
-
-
 
   config.include Rack::Test::Methods
   config.fixture_path = File.expand_path("../fixtures", __FILE__)

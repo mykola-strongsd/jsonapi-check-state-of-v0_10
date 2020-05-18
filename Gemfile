@@ -52,6 +52,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'json_spec', '1.1.5'
   gem 'pry-byebug'
   gem 'rspec'
   gem 'rspec-core'
