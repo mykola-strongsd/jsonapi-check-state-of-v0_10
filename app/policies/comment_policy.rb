@@ -25,7 +25,7 @@ class CommentPolicy
   end
 
   def create?
-    user.access_full? || (user.access_own? && record.author_id == user.id)
+    !user.access_none?
   end
 
   def update?
