@@ -37,33 +37,33 @@ class ArticlePolicy
   end
 
 
-  def create_with_author?(_author)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
+  def create_with_author?(author)
+    user.access_full? || (user.access_own? && author.id == user.id)    # it works
   end
 
 
-  def create_with_comments?(_comments)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def create_with_comments?(_comments)
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
 
-  def add_to_comments?(_comments)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def add_to_comments?(_comments)
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
   
-  def replace_comments?(_comments)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def replace_comments?(_comments)
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
 
-  def remove_from_comments?(_comment)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def remove_from_comments?(_comment)
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
 
 
-  def replace_author?(_author)
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def replace_author?(_author)
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
 
-  def remove_author?
-    user.access_full? || (user.access_own? && record.author_id == user.id)
-  end
+  # def remove_author?
+  #   user.access_full? || (user.access_own? && record.author_id == user.id)
+  # end
 end
