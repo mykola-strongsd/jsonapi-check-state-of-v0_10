@@ -1,0 +1,83 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5.3
+  ExtraDetails: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - db/migrate/*
+    - db/schema.rb
+    - vendor/**/*
+    - bin/*
+    - log/**/*
+    - public/**/*
+    - spec/factories/*
+    - config/**/*
+    - test/*
+    - node_modules/**/*
+
+Rails:
+  Enabled: true
+
+Rails/FindBy:
+  Description: 'Prefer find_by over where.first.'
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - config/environments/production.rb
+    - config/initializers/devise.rb
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*.rb
+    - spec/**/*.rb
+    - app/views/reports/*
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/steps/**/*_steps.rb
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/Output:
+  Exclude:
+    - db/data/*_migrator.rb
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - config/environments/production.rb
+
+Rails/TimeZone:
+  Exclude:
+    - config/environments/production.rb
+
+Style/ExpandPathArguments:
+  Exclude:
+    - spec/rails_helper.rb
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/PredicateName:
+  Exclude:
+    - app/resources/**/*.rb

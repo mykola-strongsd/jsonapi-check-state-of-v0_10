@@ -42,6 +42,21 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'rubocop', '~> 0.75.0', require: false
+  gem 'rubocop-junit-formatter'
+  gem 'rubocop-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'pry-byebug'
+  gem 'rspec'
+  gem 'rspec-core'
+end
+
 
 gem 'pundit'
 
@@ -50,4 +65,4 @@ gem 'jsonapi-authorization', :git => 'https://github.com/mykola-strongsd/jsonapi
 
 # gem "jsonapi-resources", "~> 0.9.0"
 # gem 'jsonapi-resources', :git => 'https://github.com/cerebris/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'
-gem 'jsonapi-resources', :git => 'https://github.com/mykola-strongsd/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'
+# gem 'jsonapi-resources', :git => 'https://github.com/mykola-strongsd/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'
