@@ -40,8 +40,10 @@ end
 
 gem 'pundit'
 
-# gem 'jsonapi-authorization', :git => 'https://github.com/lgebhardt/jsonapi-authorization.git', :branch => 'v0_10'
-gem 'jsonapi-authorization', :git => 'https://github.com/mykola-strongsd/jsonapi-authorization.git', :branch => 'v0_10'
+gem 'jsonapi-authorization'
 
-gem 'jsonapi-resources', :git => 'https://github.com/cerebris/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'
+# gem 'jsonapi-authorization', :git => 'https://github.com/lgebhardt/jsonapi-authorization.git', :branch => 'v0_10'
+# gem 'jsonapi-authorization', :git => 'https://github.com/mykola-strongsd/jsonapi-authorization.git', :branch => 'v0_10'
+
+# gem 'jsonapi-resources', :git => 'https://github.com/cerebris/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'
 # gem 'jsonapi-resources', :git => 'https://github.com/mykola-strongsd/jsonapi-resources.git', :branch => 'use_records_for_joined_resources'

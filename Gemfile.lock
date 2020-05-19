@@ -1,22 +1,3 @@
-GIT
-  remote: https://github.com/cerebris/jsonapi-resources.git
-  revision: 79cd38311eb78f91a679d3d2d40098315e259657
-  branch: use_records_for_joined_resources
-  specs:
-    jsonapi-resources (0.10.2)
-      activerecord (>= 4.1)
-      concurrent-ruby
-      railties (>= 4.1)
-
-GIT
-  remote: https://github.com/mykola-strongsd/jsonapi-authorization.git
-  revision: 762718244b8076f1c949d03659df85753d351b51
-  branch: v0_10
-  specs:
-    jsonapi-authorization (3.0.2)
-      jsonapi-resources (~> 0.10.0)
-      pundit (>= 1.0.0, < 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,6 +76,13 @@ GEM
     json_spec (1.1.5)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    jsonapi-authorization (3.0.2)
+      jsonapi-resources (~> 0.9.0)
+      pundit (>= 1.0.0, < 3.0.0)
+    jsonapi-resources (0.9.11)
+      activerecord (>= 4.1)
+      concurrent-ruby
+      railties (>= 4.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -230,8 +218,7 @@ DEPENDENCIES
   byebug
   database_cleaner
   json_spec (= 1.1.5)
-  jsonapi-authorization!
-  jsonapi-resources!
+  jsonapi-authorization
   listen (~> 3.2)
   pry-byebug
   pry-rails
