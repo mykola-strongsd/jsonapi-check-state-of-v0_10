@@ -12,10 +12,6 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
-
   config.filter_run_excluding bug: true
 
   config.include Rack::Test::Methods

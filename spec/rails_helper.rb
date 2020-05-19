@@ -1,8 +1,8 @@
-# Configure Rails Environment
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
+
 require 'pry'
 require 'rspec/rails'
 require 'spec_helper'
@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include JsonSpec::Helpers, type: :request
   config.include ApiHelpers, type: :request
+  config.include CommonHelpers, type: :request
 
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
