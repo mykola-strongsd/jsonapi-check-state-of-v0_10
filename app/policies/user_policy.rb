@@ -17,7 +17,7 @@ class UserPolicy
   end
 
   def index?
-    !user.access_none?    
+    !user.access_none?
   end
 
   def show?

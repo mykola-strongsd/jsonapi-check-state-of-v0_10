@@ -5,12 +5,12 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     @tag = tags(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get tags_url, as: :json
     assert_response :success
   end
 
-  test "should create tag" do
+  test 'should create tag' do
     assert_difference('Tag.count') do
       post tags_url, params: { tag: { taggable_id: @tag.taggable_id, taggable_type: @tag.taggable_type } }, as: :json
     end
@@ -18,17 +18,17 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     assert_response 201
   end
 
-  test "should show tag" do
+  test 'should show tag' do
     get tag_url(@tag), as: :json
     assert_response :success
   end
 
-  test "should update tag" do
+  test 'should update tag' do
     patch tag_url(@tag), params: { tag: { taggable_id: @tag.taggable_id, taggable_type: @tag.taggable_type } }, as: :json
     assert_response 200
   end
 
-  test "should destroy tag" do
+  test 'should destroy tag' do
     assert_difference('Tag.count', -1) do
       delete tag_url(@tag), as: :json
     end

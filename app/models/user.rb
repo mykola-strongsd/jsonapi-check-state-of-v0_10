@@ -11,6 +11,6 @@ class User < ApplicationRecord
   end
 
   def access_none?
-    !%{ full own }.include?(access)
-  end  
+    !%( full own ).include?(access)
+  end
 end

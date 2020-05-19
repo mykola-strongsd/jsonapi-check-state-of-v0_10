@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'puma', '~> 4.1'
+gem 'rack-cors'
 gem 'rails', '~> 6.0.3'
 gem 'sqlite3', '~> 1.4'
-gem 'puma', '~> 4.1'
-gem 'bootsnap', '>= 1.4.2', require: false
-gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -19,7 +19,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'pry-rails'
@@ -36,7 +36,6 @@ group :test do
   gem 'rspec'
   gem 'rspec-core'
 end
-
 
 gem 'pundit'
 

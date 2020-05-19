@@ -1,5 +1,5 @@
 class SeedGenerator
-  TAGS = %w{Health Business Beauty Fashion Music Food Lifestyle Travel Gardening Finance Yoga}
+  TAGS = %w[Health Business Beauty Fashion Music Food Lifestyle Travel Gardening Finance Yoga].freeze
 
   # user_1_access :own
   # user_2 access :own
@@ -39,6 +39,6 @@ class SeedGenerator
       TAGS.sample(3).each do |tag_name|
         comment.tags.create!(tag_name: tag_name)
       end
-    end  
+    end
   end
 end
