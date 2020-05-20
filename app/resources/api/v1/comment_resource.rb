@@ -4,6 +4,7 @@ module Api
       attributes :content
 
       belongs_to :author, class_name: 'Author'
+      belongs_to :article
       has_many :tags
     end
   end
