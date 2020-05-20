@@ -14,6 +14,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
+  config.include Rack::Test::Methods, type: :request
   config.include JsonSpec::Helpers, type: :request
   config.include ApiHelpers, type: :request
   config.include CommonHelpers, type: :request
