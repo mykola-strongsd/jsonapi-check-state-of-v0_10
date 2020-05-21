@@ -5,6 +5,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   let(:comment) { Comment.first }
 
   # comments#index
+
   describe 'GET #index' do
     it 'returns all items without pagination' do
       get_json api_comments_path
@@ -21,6 +22,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   end
 
   # comments#show
+
   describe 'GET /api/comments/:id' do
     it 'returns item details' do
       get_json api_comment_path(comment.id)
@@ -31,6 +33,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   end
 
   # comments#create
+
   describe 'POST /api/comments' do
     let(:author) { User.first }
     let(:article) { Article.first }
@@ -56,6 +59,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   end  
 
   # comments#update
+
   describe 'PATCH /api/comments/:id' do
     let(:new_author) { User.last }
     let(:new_article) { Article.last }
@@ -80,6 +84,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   end
 
   # comments#update
+
   describe 'PUT /api/comments/:id' do
     let(:new_author) { User.last }
     let(:new_article) { Article.last }
@@ -104,6 +109,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   end  
 
   # comments#destroy
+
   describe 'DELETE /api/comments/:id' do
     it 'destroys item' do
       delete_json api_comment_path(comment.id)
