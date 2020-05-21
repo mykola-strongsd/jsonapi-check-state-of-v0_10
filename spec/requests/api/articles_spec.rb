@@ -6,6 +6,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   let(:author) { User.first }
 
   # articles#index
+
   describe 'GET /api/articles' do
     it 'returns all items without pagination' do
       get_json api_articles_path
@@ -22,6 +23,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   end
 
   # articles#show
+
   describe 'GET /api/articles/:id' do
     it 'returns item details' do
       get_json api_article_path(article.id)
@@ -32,6 +34,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   end  
 
   # articles#create
+
   describe 'POST /api/articles' do
     context 'simple' do
       let(:payload) do
@@ -68,6 +71,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   end
 
   # articles#update
+
   describe 'PATCH /api/articles/:id' do
     context 'simple' do
       let(:payload) do
@@ -107,6 +111,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   end
 
   # articles#update
+
   describe 'PUT /api/articles/:id' do
     context 'simple' do
       let(:payload) do
@@ -146,6 +151,7 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
   end  
 
   # articles#destroy
+
   describe 'DELETE /api/articles/:id' do
     it 'destroys item' do
       delete_json api_article_path(article.id)
