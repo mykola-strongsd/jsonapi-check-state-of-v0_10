@@ -14,28 +14,28 @@ module ApiHelpers
     headers_hash
   end
 
-  def get_json(path, payload = {}, header_opts = {})
-    json_headers.merge(header_opts).each { |k, v| header(k, v) }
-    get path, payload.to_json
+  def get_json(path, headers = {})
+    json_headers.merge(headers).each { |k, v| header(k, v) }
+    get path
   end
 
-  def post_json(path, payload = {}, header_opts = {})
-    json_headers.merge(header_opts).each { |k, v| header(k, v) }
+  def post_json(path, payload = {}, headers = {})
+    json_headers.merge(headers).each { |k, v| header(k, v) }
     post path, payload.to_json
   end
 
-  def patch_json(path, payload = {}, header_opts = {})
-    json_headers.merge(header_opts).each { |k, v| header(k, v) }
+  def patch_json(path, payload = {}, headers = {})
+    json_headers.merge(headers).each { |k, v| header(k, v) }
     patch path, payload.to_json
   end
 
-  def put_json(path, payload = {}, header_opts = {})
-    json_headers.merge(header_opts).each { |k, v| header(k, v) }
+  def put_json(path, payload = {}, headers = {})
+    json_headers.merge(headers).each { |k, v| header(k, v) }
     put path, payload.to_json
   end
 
-  def delete_json(path, payload = {}, header_opts = {})
-    json_headers.merge(header_opts).each { |k, v| header(k, v) }
-    delete path, payload.to_json
+  def delete_json(path, headers = {})
+    json_headers.merge(headers).each { |k, v| header(k, v) }
+    delete path
   end
 end
