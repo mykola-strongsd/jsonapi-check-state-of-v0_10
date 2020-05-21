@@ -10,6 +10,13 @@ RSpec.describe Api::V1::CommentsController, type: :request do
       get_json api_comments_path
       expect_status 200
       expect(parsed_json[:meta][:"record-count"]).to eq 45
+      expect(parsed_json[:data].size).to eq 45
+    end
+    it 'returns all items with pagination' do
+      get_json api_comments_path, { 'page[size]': 1 }
+      expect_status 200
+      expect(parsed_json[:meta][:"record-count"]).to eq 45
+      expect(parsed_json[:data].size).to eq 1
     end
   end
 

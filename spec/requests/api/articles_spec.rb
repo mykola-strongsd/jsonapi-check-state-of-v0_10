@@ -11,6 +11,13 @@ RSpec.describe Api::V1::ArticlesController, type: :request do
       get_json api_articles_path
       expect_status 200
       expect(parsed_json[:meta][:"record-count"]).to eq 6
+      expect(parsed_json[:data].size).to eq 6
+    end
+    it 'returns all items with pagination' do
+      get_json api_articles_path, { 'page[size]': 1 }
+      expect_status 200
+      expect(parsed_json[:meta][:"record-count"]).to eq 6
+      expect(parsed_json[:data].size).to eq 1
     end
   end
 
