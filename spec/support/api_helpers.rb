@@ -14,9 +14,9 @@ module ApiHelpers
     headers_hash
   end
 
-  def get_json(path, headers = {})
+  def get_json(path, params = {}, headers = {})
     json_headers.merge(headers).each { |k, v| header(k, v) }
-    get path
+    get path, params
   end
 
   def post_json(path, payload = {}, headers = {})
